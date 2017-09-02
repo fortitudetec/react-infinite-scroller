@@ -53,6 +53,11 @@ export default class InfiniteScroll extends Component {
     this.detachScrollListener();
   }
 
+  componentWillReceiveProps(newProps) {
+    this.pageLoaded = newProps.pageStart;
+    this.setState(this.state);
+  }
+
   // Set a defaut loader for all your `InfiniteScroll` components
   setDefaultLoader(loader) {
     this.defaultLoader = loader;

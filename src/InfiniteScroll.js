@@ -54,7 +54,9 @@ export default class InfiniteScroll extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.pageLoaded = newProps.pageStart;
+    if (newProps.reset && newProps.reset === true) {
+      this.pageLoaded = 0;
+    }
     this.setState(this.state);
   }
 

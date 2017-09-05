@@ -57,7 +57,7 @@ export default class InfiniteScroll extends Component {
     if (newProps.reset && newProps.reset === true) {
       this.pageLoaded = 0;
     }
-    this.setState(this.state);
+    this.forceUpdate();
   }
 
   // Set a defaut loader for all your `InfiniteScroll` components
@@ -146,6 +146,7 @@ export default class InfiniteScroll extends Component {
       threshold,
       useCapture,
       useWindow,
+      reset,
       ...props
     } = this.props;
 

@@ -52,6 +52,14 @@ var InfiniteScroll = function (_Component) {
     value: function componentWillUnmount() {
       this.detachScrollListener();
     }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(newProps) {
+      if (newProps.reset && newProps.reset === true) {
+        this.pageLoaded = 0;
+      }
+      this.setState(this.state);
+    }
 
     // Set a defaut loader for all your `InfiniteScroll` components
 
@@ -144,7 +152,8 @@ var InfiniteScroll = function (_Component) {
           threshold = _props.threshold,
           useCapture = _props.useCapture,
           useWindow = _props.useWindow,
-          props = _objectWithoutProperties(_props, ['children', 'element', 'hasMore', 'initialLoad', 'isReverse', 'loader', 'loadMore', 'pageStart', 'ref', 'threshold', 'useCapture', 'useWindow']);
+          reset = _props.reset,
+          props = _objectWithoutProperties(_props, ['children', 'element', 'hasMore', 'initialLoad', 'isReverse', 'loader', 'loadMore', 'pageStart', 'ref', 'threshold', 'useCapture', 'useWindow', 'reset']);
 
       props.ref = function (node) {
         _this2.scrollComponent = node;
